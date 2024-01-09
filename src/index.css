@@ -12,7 +12,14 @@ body {
   align-items: center;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
-  background-image: linear-gradient(to right top, #ffffff, #f5f6fe, #e6effd, #d3e9fa, #bde4f4);
+  background-image: linear-gradient(
+    to right top,
+    #ffffff,
+    #f5f6fe,
+    #e6effd,
+    #d3e9fa,
+    #bde4f4
+  );
 }
 
 .dataCont {
@@ -24,10 +31,10 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 30px;
-  
 }
 
-.steps , .km{
+.steps,
+.km {
   font-weight: 900;
 }
 
@@ -35,11 +42,12 @@ body {
   width: 100vw;
   height: 60vh;
   color: rgb(0, 119, 255);
-  font-size: 300px;
+  font-size: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  overflow: hidden;
 }
 .footer {
   width: 100vw;
@@ -63,16 +71,17 @@ body {
   font-weight: 900;
 }
 .btn {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   background-color: rgb(0, 119, 255);
   border-radius: 50%;
   font-size: 50px;
   color: white;
-  font-size: 90px;
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 
 .recorded-time {
