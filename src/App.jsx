@@ -11,6 +11,8 @@ function App() {
   const [steps, setSteps] = useState(0);
   const [state, setState] = useState("START");
 
+  const rounds = useRef(0);
+
   useEffect(() => {
     let timer;
 
@@ -52,26 +54,29 @@ function App() {
   };
 
   const handleRoundClick = () => {
-    setSteps((prevSteps) => prevSteps + 50);
+    rounds.current += 1;
+    updateSteps();
   };
 
-
+  const updateSteps = () => {
+    setSteps(rounds.current * 60);
+  };
 
   return (
     <>
       <Steps steps={steps}></Steps>
-      <Rounds handleRoundClick={handleRoundClick} rounds={steps / 50}></Rounds>
+      <Rounds handleRoundClick={handleRoundClick} rounds={rounds.current}></Rounds>
       <div className="footer">
         <div className="time">
-          Timer: {pad(Math.floor(totalSeconds / 3600))}:{pad(Math.floor((totalSeconds % 3600) / 60))}:
-          {pad(totalSeconds % 60)}
+          Timer: {pad(Math.floor(totalSeconds / 3600))}:
+          {pad(Math.floor((totalSeconds % 3600) / 60))}:{pad(totalSeconds % 60)}
         </div>
         <Button toggleTimer={toggleTimer} state={state}></Button>
       </div>
-        <div className="recorded-time">
-          Recorded Time: {pad(Math.floor(recordedTime / 3600))}:{pad(Math.floor((recordedTime % 3600) / 60))}:
-          {pad(recordedTime % 60)}
-        </div>
+      <div className="recorded-time">
+        Recorded Time: {pad(Math.floor(recordedTime / 3600))}:
+        {pad(Math.floor((recordedTime % 3600) / 60))}:{pad(recordedTime % 60)}
+      </div>
     </>
   );
 }
